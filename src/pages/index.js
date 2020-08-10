@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import AptibleLayout from '../components/layouts/AptibleLayout';
-import Index from '../components/blog/Index';
 import { graphql } from 'gatsby';
+import { AptibleLayout } from '../components/AptibleLayout';
+import { Index } from '../components/Index';
 
 export default ({ data }) => {
   return (
@@ -11,20 +11,13 @@ export default ({ data }) => {
         <title>Aptible | Product Weekly</title>
         <meta
           name="description"
-          content="Aptible is the leading trust management platform for B2B SaaS teams that offers compliance monitoring and workflow automation, audit ready hosting, and fast and easy audit prep."
+          content="Weekly updates from Aptible’s product team"
         />
       </Helmet>
       <Index posts={data.posts.edges} />
     </AptibleLayout>
   );
 };
-
-// query($skip: Int!, $limit: Int!) {
-//   posts: allContentfulProductUpdate(
-//     sort: { fields: [createdAt], order: DESC }
-//     limit: $limit
-//     skip: $skip
-//   ) {
 
 export const query = graphql`
   query {
@@ -34,7 +27,6 @@ export const query = graphql`
       edges {
         node {
           title
-          date
           createdAt
           author {
             name
