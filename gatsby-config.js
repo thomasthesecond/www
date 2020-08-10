@@ -2,10 +2,9 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.aptible.com`,
+    siteUrl: `https://productweekly.aptible.com`,
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -31,13 +30,6 @@ module.exports = {
       options: {
         key: 'modal',
         id: 'modal-portal',
-      },
-    },
-    {
-      resolve: 'gatsby-source-lever',
-      options: {
-        site: 'aptible',
-        verboseOutput: true,
       },
     },
     `gatsby-plugin-react-helmet`,

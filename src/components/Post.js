@@ -36,7 +36,10 @@ export const Post = ({ post }) => {
         <div className={styles.statusLabel}>Status</div>
 
         <div className={styles.status}>
-          <div className={styles.statusColor} style={{ backgroundColor: post.statusColor }} />
+          <div
+            className={styles.statusColor}
+            data-color={post.statusColor}
+          />
           {post.status}
         </div>
       </div>
@@ -48,7 +51,7 @@ export const Post = ({ post }) => {
 
         {post.materials.map((material) => (
           <a href={material.url} className={styles.material}>
-            <img className={styles.materialIcon} src={icons[material.icon] || icons.link} />
+            <img className={styles.materialIcon} src={icons[material.icon] || icons.link} alt="" />
             <div>
               <div className={styles.materialTitle}>{material.title}</div>
               <div>{material.subtitle}</div>

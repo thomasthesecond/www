@@ -1,6 +1,6 @@
-# www
+# Product Weekly
 
-`www` is the repo for the [marketing site](https://www.aptible.com), hosted
+`product-weekly` is the repo for [productweekly.aptible.com](https://productweekly.aptible.com) hosted
 on [Netlify](https://www.netlify.com).
 
 ## Running locally
@@ -17,7 +17,7 @@ Then install dependencies and start:
 
 ```
 yarn
-gatsby develop
+yarn start
 ```
 
 Sometimes changes you make in Contentful won't show up locally because Gatsby
@@ -45,8 +45,8 @@ Deploys currently take ~5 mins.
 
 ## Adding or editing Contentful entries (blog posts, changelog, resources, etc.)
 
-Login to Contentful using the shared credentials in 1Password, and make sure
-you are in the `www.aptible.com` workspace in the top left of the screen.
+Log in to Contentful using the shared credentials in 1Password, and make sure
+you are in the `Product Weekly` workspace in the top left of the screen.
 
 You can then add or edit content entries. Any changes you make will *not* be
 visible in production until you `Publish` them - before that, they will only be

@@ -29,6 +29,9 @@ module.exports = {
     '--grays4': '#47687d',
     '--grays5': '#204156',
     '--grays6': '#0a1b28',
+    '--statusRed': '#f25d54',
+    '--statusYellow': '#fdb515',
+    '--statusGreen': '#54af68',
   },
   customMedia: {
     '--mobile': '(max-width: 1119px)',

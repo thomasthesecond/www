@@ -69,6 +69,18 @@
   width: 8px;
 }
 
+.statusColor[data-color='Red'] {
+  background-color: var(--statusRed);
+}
+
+.statusColor[data-color='Yellow'] {
+  background-color: var(--statusYellow);
+}
+
+.statusColor[data-color='Green'] {
+  background-color: var(--statusGreen);
+}
+
 .materialsTitle {
   font-size: 12px;
   color: var(--white-fifty);
