@@ -18,7 +18,7 @@ const links = [
   },
   {
     title: 'Legal',
-    url: '/legal/',
+    url: '/legal/terms-of-service/',
   },
   {
     title: 'Owner’s Manual',

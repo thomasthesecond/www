@@ -9,7 +9,10 @@ const Hero = ({ title, body }) => (
       <div className={styles.text}>
         <h5>Use Case</h5>
         <h1 className="h2">{title}</h1>
-        {body.map((p) => <p className="XL">{p}</p>)}
+        {Array.isArray(body)
+          ? body.map((p) => <p className="XL">{p}</p>)
+          : <p className="XL">{body}</p>
+        }
 
         <div className={styles.button}>
           <SignupButton text="Get a demo" />

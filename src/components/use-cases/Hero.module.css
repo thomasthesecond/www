@@ -11,12 +11,16 @@
 }
 
 .button {
-  margin-top: 35px;
+  margin-top: 80px;
 }
 
 @media (--mobile) {
   .text {
     grid-row: 1;
     grid-column: 1 / -1;
+  }
+
+  .button {
+    margin-top: 40px;
   }
 }
