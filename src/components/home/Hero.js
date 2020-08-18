@@ -2,11 +2,11 @@ import React from 'react';
 import heroIllustration from '../../images/home/illustrations/hero.svg';
 import { Grid } from '../grid/Grid';
 import SignupButton from '../signup/SignupButton';
+import Paragraph from '../shared/Paragraph';
 import HeroCallout from './HeroCallout';
-import Paragraph from './Paragraph';
 import styles from './Hero.module.css';
 
-const Hero = ({ heroBlock }) => (
+const Hero = () => (
   <div className={styles.container}>
     <div className={styles.background}>
       <img src={heroIllustration} />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import AptibleLayout from '../components/layouts/AptibleLayout';
 import Hero from '../components/home/Hero';
-import Section from '../components/home/Section';
+import Section from '../components/shared/Section';
 import ProductCarousel from '../components/home/ProductCarousel';
 import FeaturesCarousel from '../components/home/FeaturesCarousel';
 import Logos from '../components/home/Logos';

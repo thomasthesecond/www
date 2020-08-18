@@ -5,15 +5,19 @@ import styles from './Section.module.css';
 
 const Section = ({ title, body, children }) => (
   <div className={styles.container}>
-    <Grid>
-      <div className={styles.content}>
-        <h2>{title}</h2>
+    {title && (
+      <Grid>
+        <div className={styles.content}>
+          <h2>{title}</h2>
 
-        <div className={styles.paragraph}>
-          <Paragraph>{body}</Paragraph>
+          {body && (
+            <div className={styles.paragraph}>
+              <Paragraph>{body}</Paragraph>
+            </div>
+          )}
         </div>
-      </div>
-    </Grid>
+      </Grid>
+    )}
 
     <div className={styles.module}>
       {children}
