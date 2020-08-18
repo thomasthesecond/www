@@ -7,20 +7,45 @@
   z-index: 2;
   grid-row: 1;
   grid-column: 4 / -1;
-  padding: 40px 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.links a {
+.link {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.link a {
+  color: var(--body-color);
   text-decoration: none;
 }
 
-.links a div {
-  color: var(--body-color);
-  font-size: 18px;
-  line-height: 2;
-  margin-bottom: 8px;
+.link a:hover,
+.link a:active,
+.link a:focus {
+  color: white;
 }
 
-.links a:hover div {
-  color: white;
+.body {
+  display: none;
+  position: absolute;
+  width: 352px;
+  top: 8px;
+  right: -176px;
+}
+
+.link:hover > .body {
+  display: block;
+}
+
+.body p {
+  color: var(--body-color);
+  font-size: 18px;
+  line-height: 1.44;
+  margin: 0;
 }

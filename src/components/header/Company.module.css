@@ -6,23 +6,27 @@
   position: relative;
   z-index: 2;
   grid-row: 1;
-  grid-column: 3 / -1;
-  padding: 40px 0;
-  text-align: right;
-  margin-right: 90px;
+  grid-column: 4 / -1;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.links a {
+.link {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.link a {
+  color: var(--body-color);
   text-decoration: none;
 }
 
-.links a div {
-  color: var(--body-color);
-  font-size: 18px;
-  line-height: 2;
-  margin-bottom: 8px;
-}
-
-.links a:hover div {
+.link a:hover,
+.link a:active,
+.link a:focus {
   color: white;
 }

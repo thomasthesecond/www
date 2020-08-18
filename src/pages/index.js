@@ -10,7 +10,6 @@ import Frameworks from '../components/home/Frameworks';
 import Demo from '../components/home/Demo';
 import ZeroTo from '../components/footer/ZeroTo';
 import CustomerCards from '../components/customers/CustomerCards';
-import Background from '../components/shared/Background';
 
 const primarySections = [
   {

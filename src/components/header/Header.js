@@ -64,9 +64,10 @@ class Header extends React.Component {
   }
 
   render() {
+    const { openSectionName } = this.state;
     let DropDownContent;
-    if (this.state.navOpen && dropDowns[this.state.openSectionName]) {
-      DropDownContent = dropDowns[this.state.openSectionName];
+    if (this.state.navOpen && dropDowns[openSectionName]) {
+      DropDownContent = dropDowns[openSectionName];
     }
 
     let headerCta;
@@ -94,34 +95,31 @@ class Header extends React.Component {
 
               <MainNavItem
                 title="Products"
-                gridColumn="3"
+                gridColumn="4"
                 onClickFn={this.toggleNavSection}
                 sectionName="products"
-                openSectionName={this.state.openSectionName}
+                openSectionName={openSectionName}
               />
               <MainNavItem
                 title="Use Cases"
-                to="/use-cases/"
-                gridColumn="4"
-              />
-              <MainNavItem
-                title="Customers"
-                to="/customers/"
                 gridColumn="5"
+                onClickFn={this.toggleNavSection}
+                sectionName="useCases"
+                openSectionName={openSectionName}
               />
               <MainNavItem
                 title="Resources"
                 gridColumn="6"
                 onClickFn={this.toggleNavSection}
                 sectionName="resources"
-                openSectionName={this.state.openSectionName}
+                openSectionName={openSectionName}
               />
               <MainNavItem
                 title="Company"
                 gridColumn="7"
                 onClickFn={this.toggleNavSection}
                 sectionName="company"
-                openSectionName={this.state.openSectionName}
+                openSectionName={openSectionName}
               />
 
               <div className={styles.mobileNav}>

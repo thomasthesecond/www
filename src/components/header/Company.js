@@ -3,26 +3,41 @@ import { Link } from 'gatsby';
 import { Grid } from '../grid/Grid';
 import styles from './Company.module.css';
 
-export default () => (
+const links = [
+  {
+    title: 'About',
+    url: '/company/',
+  },
+  {
+    title: 'Careers',
+    url: '/careers/',
+  },
+  {
+    title: 'Press',
+    url: '/press/',
+  },
+  {
+    title: 'Legal',
+    url: '/legal/',
+  },
+  {
+    title: 'Owner’s Manual',
+    url: '/owners-manual/',
+  },
+];
+
+const Company = () => (
   <div className={styles.container}>
     <Grid>
       <div className={styles.links}>
-        <Link to="/company/">
-          <div>About</div>
-        </Link>
-
-        <Link to="/careers/">
-          <div>Careers</div>
-        </Link>
-
-        <Link to="/press/">
-          <div>Press</div>
-        </Link>
-
-        <Link to="/owners-manual/">
-          <div>Aptible Owner’s Manual</div>
-        </Link>
+        {links.map((link) => (
+          <div className={styles.link} key={link.url}>
+            <Link to={link.url}>{link.title}</Link>
+          </div>
+        ))}
       </div>
     </Grid>
   </div>
 );
+
+export default Company;
