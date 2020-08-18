@@ -80,7 +80,7 @@ class Header extends React.Component {
     } else if (this.state.isDeployPage) {
       headerCta = <SignupButton size="small" text="Start with Deploy" product="deploy" />;
     } else {
-      headerCta = <SignupButton size="small" text="Get a demo" product="comply" />;
+      headerCta = <SignupButton size="small" text="Sign up for free" product="comply" />;
     }
 
     return (

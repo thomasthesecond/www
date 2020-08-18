@@ -5,8 +5,6 @@ import AptibleLayout from '../components/layouts/AptibleLayout';
 import UseCases from '../components/use-cases/UseCases';
 import ZeroTo from '../components/footer/ZeroTo';
 
-console.log(data);
-
 const UseCasesPage = () => (
   <AptibleLayout>
     <Helmet>
