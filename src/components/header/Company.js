@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { Grid } from '../grid/Grid';
 import styles from './Company.module.css';
 
-const links = [
+export const COMPANY_NAV = [
   {
     title: 'About',
     url: '/company/',
@@ -30,7 +30,7 @@ const Company = () => (
   <div className={styles.container}>
     <Grid>
       <div className={styles.links}>
-        {links.map((link) => (
+        {COMPANY_NAV.map((link) => (
           <div className={styles.link} key={link.url}>
             <Link to={link.url}>{link.title}</Link>
           </div>

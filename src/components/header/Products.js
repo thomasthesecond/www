@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { Grid } from '../grid/Grid';
 import styles from './Products.module.css';
 
-const products = [
+export const PRODUCTS_NAV = [
   {
     title: 'Comply',
     body:
@@ -50,7 +50,7 @@ const Products = () => (
   <div className={styles.container}>
     <Grid>
       <div className={styles.links}>
-        {products.map((product) => (
+        {PRODUCTS_NAV.map((product) => (
           <div key={product.title} className={styles.section}>
             <h3>
               <Link to={product.url}>

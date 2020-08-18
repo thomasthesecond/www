@@ -25,7 +25,7 @@ const Hero = () => (
         </div>
 
         <div className={styles.button}>
-          <SignupButton text="Get Demo" />
+          <SignupButton text="Get a demo" />
         </div>
       </div>
 
