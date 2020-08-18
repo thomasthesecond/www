@@ -36,7 +36,7 @@ const products = [
     links: [
       {
         title: 'Features',
-        url: '/deploy/#features',
+        url: '/deploy/features/',
       },
       {
         title: 'Pricing',

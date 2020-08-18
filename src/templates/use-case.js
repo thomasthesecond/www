@@ -14,11 +14,13 @@ const UseCaseTemplate = ({ pageContext }) => {
     sections,
   } = pageContext;
 
+  const description = Array.isArray(body) ? body[0] : body;
+
   return (
     <AptibleLayout>
       <Helmet>
         <title>Aptible | Use Cases | {title}</title>
-        <meta name="description" content="" />
+        <meta name="description" content={description} />
       </Helmet>
 
       <Hero

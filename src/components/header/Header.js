@@ -95,17 +95,22 @@ class Header extends React.Component {
 
               <MainNavItem
                 title="Products"
-                gridColumn="4"
+                gridColumn="3"
                 onClickFn={this.toggleNavSection}
                 sectionName="products"
                 openSectionName={openSectionName}
               />
               <MainNavItem
                 title="Use Cases"
-                gridColumn="5"
+                gridColumn="4"
                 onClickFn={this.toggleNavSection}
                 sectionName="useCases"
                 openSectionName={openSectionName}
+              />
+              <MainNavItem
+                title="Customers"
+                to="/customers/"
+                gridColumn="5"
               />
               <MainNavItem
                 title="Resources"

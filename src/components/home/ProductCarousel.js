@@ -35,7 +35,7 @@ const ProductCarousel = ({}) => {
   const { width: windowWidth } = useWindowSize();
   const [gridRef, { width: gridRefWidth }] = useMeasure();
   const [itemRef, { width: itemRefWidth }] = useMeasure();
-  const scrollbarWidth = useScrollbarWidth();
+  const scrollbarWidth = useScrollbarWidth() || 15;
   const isMobile = useMedia('(max-width: 1119px)');
   const CAROUSEL_HEIGHT = isMobile ? 324 : 450;
 
