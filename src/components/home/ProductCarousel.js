@@ -1,29 +1,34 @@
 import React from 'react';
+import cn from 'classnames';
 import { Link } from 'gatsby';
 import styles from './ProductCarousel.module.css';
 import { Grid, Row } from '../grid/Grid';
-import Arrow from '../shared/Arrow';
+import Button from '../buttons/Button';
 
-const ALL_PRODUCTS = [
+const PRODUCTS = [
   {
     id: 'comply',
     url: '/comply/',
     name: 'Aptible Comply',
-    description: 'Compliance monitoring and automation through integrations'
+    title: 'Compliance Management',
+    body:
+      'The end-to-end compliance management platform that uses intelligent automations to simplify compliance work.',
   },
   {
     id: 'deploy',
     url: '/deploy/',
     name: 'Aptible Deploy',
-    description: 'Deploy audit-ready apps and databases'
-  }
+    title: 'Container Security',
+    body:
+      'The container orchestration platform that automates the data security controls required for software in regulated industries.',
+  },
 ];
 
 class ProductCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeProduct: this.props.startPosition === 'right' ? 'deploy' : 'comply'
+      activeProduct: this.props.startPosition === 'right' ? 'deploy' : 'comply',
     };
 
     this.carouselRef = React.createRef();
@@ -43,65 +48,83 @@ class ProductCarousel extends React.Component {
       }
     }, 500);
 
-    if (typeof (window) !== 'undefined') {
+    if (typeof window !== 'undefined') {
       window.addEventListener('resize', this.padCarouselToScreenSize);
     }
   }
 
   componentWillUnmount = () => {
     clearInterval(this.scrollWatcher);
-  }
+  };
 
   padCarouselToScreenSize = () => {
-    
     const container = this.carouselRef.current.children[0];
-
     const gridWidth = this.gridRef.current.offsetWidth;
-    const windowWidth = window.outerWidth;
+    const windowWidth = window.innerWidth;
     this.carouselPadding = (windowWidth - gridWidth) / 2;
-
-    container.style.padding = `0 ${this.carouselPadding}px`;
+    container.style.paddingLeft = `${this.carouselPadding}px`;
+    container.style.paddingRight = `${this.carouselPadding}px`;
 
     if (this.props.startPosition && this.props.startPosition === 'right') {
       this.carouselRef.current.scrollLeft = container.offsetWidth;
     } else {
       this.carouselRef.current.scrollLeft = 0;
     }
-  }
+  };
 
-  scrollTo = (product) => {
+  scrollTo = product => {
     if (product === 'comply') {
       this.carouselRef.current.scrollLeft = 0;
     } else {
       this.carouselRef.current.scrollLeft = 999;
     }
-  }
+  };
 
   render() {
+    const { activeProduct } = this.state;
+
     return (
       <div>
-        <div className={styles.productSelector} ref={this.carouselRef}>
-          <div className={styles.carouselContainer}>
-            {ALL_PRODUCTS.map((product, idx) =>
-              <Link key={idx} to={product.url} className={`${styles.product} ${styles[product.id]}`}>
-                <div className={styles.productArrow}><Arrow /></div>
-                <h5 dangerouslySetInnerHTML={{ __html: product.name }}></h5>
-                <h2 dangerouslySetInnerHTML={{ __html: product.description }}></h2>
-              </Link>
-            )}
+        <div className={styles.container}>
+          <div className={styles.productSelector} ref={this.carouselRef}>
+            <div className={styles.carouselContainer}>
+              {PRODUCTS.map(product => {
+                const { url, id, name, title, body } = product;
+                return (
+                  <Link
+                    className={cn(styles.product, styles[id])}
+                    key={url}
+                    to={url}
+                  >
+                    <h5>{name}</h5>
+                    <h2>{title}</h2>
+                    <p>{body}</p>
+
+                    <div className={styles.button}>
+                      <Button>
+                        Explore {name} <span className={styles.arrow}>&rarr;</span>
+                      </Button>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
+
         <Grid>
           <Row>
             <div className={styles.circles} ref={this.gridRef}>
-              <span
-                onClick={() => this.scrollTo('comply')}
-                className={`${styles.circle} ${this.state.activeProduct === 'comply' ? styles.active : ''}`}>
-              </span>
-              <span
-                onClick={() => this.scrollTo('deploy')}
-                className={`${styles.circle} ${this.state.activeProduct === 'deploy' ? styles.active : ''}`}>
-              </span>
+              {PRODUCTS.map(product => (
+                <span
+                  key={product.id}
+                  onClick={() => this.scrollTo(product.id)}
+                  className={cn([
+                    styles.circle,
+                    activeProduct === product.id && styles.active,
+                  ])}
+                />
+              ))}
             </div>
           </Row>
         </Grid>

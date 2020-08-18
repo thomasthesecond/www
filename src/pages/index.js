@@ -1,36 +1,95 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import heroIllustration from '../images/home/illustrations/hero.svg';
 import AptibleLayout from '../components/layouts/AptibleLayout';
 import Hero from '../components/home/Hero';
+import Section from '../components/home/Section';
 import ProductCarousel from '../components/home/ProductCarousel';
+import FeaturesCarousel from '../components/home/FeaturesCarousel';
 import Logos from '../components/home/Logos';
-import Customers from '../components/home/Customers';
+import Frameworks from '../components/home/Frameworks';
+import Demo from '../components/home/Demo';
 import ZeroTo from '../components/footer/ZeroTo';
-import { findBlockById } from '../lib/blocks';
-import { graphql } from 'gatsby';
+import CustomerCards from '../components/customers/CustomerCards';
+import Background from '../components/shared/Background';
 
-export default ({ data }) => (
-  <AptibleLayout>
-    <Helmet>
-      <title>Aptible | Security Management Platform</title>
-      <meta
-        name="description"
-        content="Aptible is the leading trust management platform for B2B SaaS teams that offers compliance monitoring and workflow automation, audit ready hosting, and fast and easy audit prep."
-      />
-    </Helmet>
-    <Hero heroBlock={findBlockById(data.blocks.edges, 'home-hero')} />
-    <ProductCarousel />
-    <Logos />
-    <Customers />
-    <ProductCarousel startPosition="right" />
-    <ZeroTo />
-  </AptibleLayout>
+const primarySections = [
+  {
+    id: 'products',
+    title: 'Compliance and security solutions that build trust',
+    body:
+      'Making it simple for modern businesses to improve their data security and compliance programs.',
+    module: <ProductCarousel />,
+  },
+  {
+    id: 'features',
+    title: 'Simplify building customer trust',
+    body:
+      'Comply and Deploy make it easier for compliance managers and developers to create customer trust.',
+    module: (
+      <FeaturesCarousel />
+    ),
+  },
+  {
+    id: 'customers',
+    title: 'Modern business trust Aptible to help them build trust',
+    body:
+      'Hundreds of companies love Aptible for giving them the comprehensive platforms with intelligent automation to simplify their work.',
+    module: <CustomerCards />,
+  },
+];
+
+const secondarySections = [
+  {
+    id: 'frameworks',
+    title: 'Security is our business',
+    body:
+      'We know how important data security is, it’s not just what we help you with, it’s also core to how we operate.',
+    module: <Frameworks />,
+  },
+  {
+    id: 'demo',
+    title: 'Build Customer Trust',
+    body: 'Start eliminating the manual work of security and compliance now.',
+    module: <Demo />
+  },
+];
+
+const IndexPage = () => (
+  <Background
+    // image={heroIllustration}
+    // repeat="no-repeat"
+    // // position="140% -130px"
+    // position="630px -130px"
+  >
+    <AptibleLayout>
+      <Helmet>
+        <title>Aptible | Security Management Platform</title>
+        <meta
+          name="description"
+          content="Aptible is the leading trust management platform for B2B SaaS teams that offers compliance monitoring and workflow automation, audit ready hosting, and fast and easy audit prep."
+        />
+      </Helmet>
+
+      <Hero />
+
+      {primarySections.map(section => (
+        <Section key={section.id} title={section.title} body={section.body}>
+          {section.module}
+        </Section>
+      ))}
+
+      <Logos />
+
+      {secondarySections.map(section => (
+        <Section key={section.id} title={section.title} body={section.body}>
+          {section.module}
+        </Section>
+      ))}
+
+      <ZeroTo />
+    </AptibleLayout>
+  </Background>
 );
 
-export const query = graphql`
-  query {
-    blocks: allContentfulContentBlock(filter: { page: { eq: "home" } }) {
-      ...blockProperties
-    }
-  }
-`;
+export default IndexPage;
