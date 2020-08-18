@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import useCases from '../../data/use-cases.json';
+import { USE_CASES_NAV } from '../header/UseCases';
 import { Grid } from '../grid/Grid';
 import NewsletterSignup from './NewsletterSignup';
 import styles from './Footer.module.css';
@@ -44,8 +44,8 @@ const Footer = () => (
 
       <div className={styles.useCases}>
         <h6 className="small">Use Cases</h6>
-        {useCases.map((link) => (
-          <Link key={link.slug} to={`/use-cases/${link.slug}`}>
+        {USE_CASES_NAV.map((link) => (
+          <Link key={link.title} to={link.url}>
             {link.title}
           </Link>
         ))}
