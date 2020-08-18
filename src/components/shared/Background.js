@@ -15,7 +15,7 @@ const Background = ({
     backgroundAttachment: attachment,
     backgroundClip: clip,
     backgroundColor: color,
-    backgroundImage: `url(${image})`,
+    backgroundImage: image ? `url(${image})` : null,
     backgroundOrigin: origin,
     backgroundPosition: position,
     backgroundRepeat: repeat,

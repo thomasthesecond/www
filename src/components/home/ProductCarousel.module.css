@@ -1,12 +1,12 @@
 .container {
-  height: 450px;
+  /* height: 450px; */
   overflow: hidden;
   margin-bottom: 24px;
 }
 
 .productSelector {
   position: relative;
-  height: calc(450px + 15px);
+  /* height: calc(450px + 15px); */
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -23,7 +23,7 @@
   position: relative;
   width: 880px;
   padding: 110px 180px 77px 80px;
-  max-height: 450px;
+  /* max-height: 450px; */
   background-color: var(--aptible-black-light);
   text-decoration: none;
   background-size: 800px;
@@ -33,9 +33,13 @@
   display: block;
 }
 
-.product + .product {
-  margin-left: 8px;
+.product {
+  margin-right: 8px;
 }
+
+/* .product + .product {
+  margin-left: 8px;
+} */
 
 .comply {
   background-image: url('../../images/illustrations/comply.png');
@@ -70,6 +74,17 @@
   border-bottom-color: var(--aptible-yellow);
 }
 
+.productArrow {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.product:hover .productArrow {
+  display: block;
+}
+
 .circles {
   width: 100%;
   display: flex;
@@ -99,7 +114,9 @@
   } */
 
   .product {
-    background-image: none;
+    /* background-image: none; */
+    background-size: 500px;
+    background-position: 290px -120px;
     padding: 40px;
     width: 85vw;
     max-width: 640px;
@@ -113,6 +130,7 @@
 
   .product p {
     font-size: 16px;
+    max-width: 70%;
   }
 
   .button {
@@ -121,5 +139,9 @@
 
   .button > div {
     font-size: 1em;
+  }
+
+  .productArrow {
+    display: block;
   }
 }

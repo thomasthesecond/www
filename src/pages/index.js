@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import heroIllustration from '../images/home/illustrations/hero.svg';
 import AptibleLayout from '../components/layouts/AptibleLayout';
 import Hero from '../components/home/Hero';
 import Section from '../components/home/Section';
@@ -56,40 +55,33 @@ const secondarySections = [
 ];
 
 const IndexPage = () => (
-  <Background
-    // image={heroIllustration}
-    // repeat="no-repeat"
-    // // position="140% -130px"
-    // position="630px -130px"
-  >
-    <AptibleLayout>
-      <Helmet>
-        <title>Aptible | Security Management Platform</title>
-        <meta
-          name="description"
-          content="Aptible is the leading trust management platform for B2B SaaS teams that offers compliance monitoring and workflow automation, audit ready hosting, and fast and easy audit prep."
-        />
-      </Helmet>
+  <AptibleLayout>
+    <Helmet>
+      <title>Aptible | Security Management Platform</title>
+      <meta
+        name="description"
+        content="Aptible is the leading trust management platform for B2B SaaS teams that offers compliance monitoring and workflow automation, audit ready hosting, and fast and easy audit prep."
+      />
+    </Helmet>
 
-      <Hero />
+    <Hero />
 
-      {primarySections.map(section => (
-        <Section key={section.id} title={section.title} body={section.body}>
-          {section.module}
-        </Section>
-      ))}
+    {primarySections.map(section => (
+      <Section key={section.id} title={section.title} body={section.body}>
+        {section.module}
+      </Section>
+    ))}
 
-      <Logos />
+    <Logos />
 
-      {secondarySections.map(section => (
-        <Section key={section.id} title={section.title} body={section.body}>
-          {section.module}
-        </Section>
-      ))}
+    {secondarySections.map(section => (
+      <Section key={section.id} title={section.title} body={section.body}>
+        {section.module}
+      </Section>
+    ))}
 
-      <ZeroTo />
-    </AptibleLayout>
-  </Background>
+    <ZeroTo />
+  </AptibleLayout>
 );
 
 export default IndexPage;

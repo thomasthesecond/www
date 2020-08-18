@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import cn from 'classnames';
 import { Link } from 'gatsby';
+import { useMeasure, useScroll, useWindowSize, useScrollbarWidth, useMedia } from 'react-use';
 import auditsIllustration from '../../images/home/illustrations/audits.svg';
 import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.svg';
 import sourceOfTruthIllustration from '../../images/home/illustrations/source-of-truth.svg';
-import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
+// import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
 import { Grid, Row } from '../grid/Grid';
 import Arrow from '../shared/Arrow';
 import Button from '../buttons/Button';
@@ -35,88 +36,87 @@ const ITEMS = [
   {
     id: '4',
     title: 'Determine Vendors Trustworthiness',
-    image: vendorsIllustration,
+    // image: vendorsIllustration,
+    image: '',
     body: 'Understand and manage third-party risk throughout the vendor lifecycle with a suite of powerful vendor management tools.',
     url: '/',
   },
 ];
 
-class FeaturesCarousel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeItem: 0,
-    };
+const FeaturesCarousel = () => {
+  const scrollRef = useRef(null);
+  const carouselRef = useRef(null);
+  const [carouselPadding, setCarouselPadding] = useState(0);
+  const [activeDot, setActiveDot] = useState(1);
+  const { x: scrollXPosition } = useScroll(scrollRef);
+  const { width: windowWidth } = useWindowSize();
+  const [gridRef, { width: gridRefWidth }] = useMeasure();
+  const [itemRef, { width: itemRefWidth }] = useMeasure();
+  const scrollbarWidth = useScrollbarWidth();
+  const isMobile = useMedia('(max-width: 1119px)');
+  const CAROUSEL_HEIGHT = isMobile ? 500 : 776;
 
-    this.carouselRef = React.createRef();
-    this.gridRef = React.createRef();
-    this.scrollWatcher = null;
-    this.carouselPadding = 0;
+  const startPositions = ITEMS.map((_, index) => {
+    return (itemRefWidth * (index + 1)) - itemRefWidth;
+  });
+
+  const scrollTo = (itemNumber) => {
+    const index = itemNumber - 1;
+    scrollRef.current.scrollLeft = startPositions[index];
   }
 
-  componentDidMount() {
-    this.padCarouselToScreenSize();
-
-    // this.scrollWatcher = setInterval(() => {
-    //   if (this.carouselRef.current.scrollLeft > this.carouselPadding) {
-    //     console.log('11');
-    //     this.setState({ activeItem: '1' });
-    //   } else {
-    //     console.log('22');
-    //     this.setState({ activeItem: '2' });
-    //   }
-    // }, 500);
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.padCarouselToScreenSize);
-    }
+  const highlightDots = () => {
+    const activeDots = startPositions.filter((position) => scrollXPosition >= position);
+    setActiveDot(activeDots.length);
   }
 
-  componentWillUnmount = () => {
-    clearInterval(this.scrollWatcher);
+  const padCarouselToScreenSize = () => {
+    const carouselContainer = carouselRef.current;
+    setCarouselPadding((windowWidth - scrollbarWidth - gridRefWidth) / 2);
+    carouselContainer.style.paddingLeft = `${carouselPadding}px`;
+    // carouselContainer.style.paddingRight = `${carouselPadding + itemRefWidth}px`;
+    carouselContainer.style.paddingRight = `${carouselPadding}px`;
   };
 
-  padCarouselToScreenSize = () => {
-    const container = this.carouselRef.current.children[0];
-    const gridWidth = this.gridRef.current.offsetWidth;
-    const windowWidth = window.innerWidth;
-    this.carouselPadding = (windowWidth - gridWidth) / 2;
-    container.style.paddingLeft = `${this.carouselPadding}px`;
-    container.style.paddingRight = `${this.carouselPadding}px`;
-    this.carouselRef.current.scrollLeft = 0;
-  };
+  useLayoutEffect(() => {
+    padCarouselToScreenSize();
+    highlightDots();
+  }, [
+    carouselPadding,
+    gridRefWidth,
+    windowWidth,
+    scrollXPosition,
+    itemRefWidth,
+    activeDot,
+    isMobile,
+  ]);
 
-  scrollTo = id => {
-    console.log(id);
-    if (id === '1') {
-      this.carouselRef.current.scrollLeft = 0;
-    } else {
-      this.carouselRef.current.scrollLeft = 999;
-    }
-  };
-
-  render() {
-    const { activeItem } = this.state;
-
-    return (
-      <div>
-        <div className={styles.container}>
-          <div className={styles.productSelector} ref={this.carouselRef}>
-            <div className={styles.carouselContainer}>
-              {ITEMS.map(item => {
-                const { url, id, title, body, image } = item;
-                return (
+  return (
+    <div>
+      <div
+        className={styles.container}
+        style={{ height: `${CAROUSEL_HEIGHT}px` }}
+      >
+        <div
+          ref={scrollRef}
+          className={styles.productSelector}
+          style={{ height: `${CAROUSEL_HEIGHT + scrollbarWidth}px` }}
+        >
+          <div className={styles.carouselContainer} ref={carouselRef}>
+            {ITEMS.map(item => {
+              const { url, id, title, body, image } = item;
+              return (
+                <div key={id} ref={itemRef}>
                   <Link
+                    to={url}
                     className={styles.product}
                     style={{
-                      backgroundImage: `url(${image})`,
+                      backgroundImage: image ? `url(${image})` : null,
+                      height: `${CAROUSEL_HEIGHT}px`,
                     }}
-                    key={id}
-                    to={url}
                   >
-                    <div className={styles.productArrow}><Arrow /></div>
+                    <div role="presentation" className={styles.productArrow}><Arrow /></div>
                     <div className={styles.content}>
-                      {/* <img src={image} /> */}
                       <h3>{title}</h3>
                       <p>{body}</p>
 
@@ -127,31 +127,34 @@ class FeaturesCarousel extends React.Component {
                       </div>
                     </div>
                   </Link>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
+      </div>
 
-        <Grid>
-          <Row>
-            <div className={styles.circles} ref={this.gridRef}>
-              {ITEMS.map(item => (
+      <Grid>
+        <Row>
+          <div className={styles.circles} ref={gridRef}>
+            {ITEMS.map((item, index) => {
+              const itemNumber = index + 1;
+              return (
                 <span
                   key={item.id}
-                  onClick={() => this.scrollTo(item.id)}
+                  onClick={() => scrollTo(itemNumber)}
                   className={cn([
                     styles.circle,
-                    activeItem === item.id && styles.active,
+                    activeDot === itemNumber && styles.active,
                   ])}
                 />
-              ))}
-            </div>
-          </Row>
-        </Grid>
-      </div>
-    );
-  }
-}
+              );
+            })}
+          </div>
+        </Row>
+      </Grid>
+    </div>
+  );
+};
 
 export default FeaturesCarousel;

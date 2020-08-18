@@ -8,20 +8,10 @@ import styles from './Hero.module.css';
 
 const Hero = ({ heroBlock }) => (
   <div className={styles.container}>
-    <div style={{
-        // width: '1470px',
-        // height: '1470px',
-        // backgroundColor: 'red',
-        position: 'absolute',
-        top: '-130px',
-        right: '-10vw',
-    }}>
-      <img src={heroIllustration} style={{
-        display: "block",
-        width: "100%",
-        height: "100%",
-      }}/>
+    <div className={styles.background}>
+      <img src={heroIllustration} />
     </div>
+
     <Grid>
       <div className={styles.content}>
         <h1 className="hero">Build Customer Trust with Compliance</h1>
