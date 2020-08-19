@@ -25,6 +25,7 @@
   display: inline-block;
 }
 
+.link:hover > a,
 .link a:hover,
 .link a:active,
 .link a:focus {

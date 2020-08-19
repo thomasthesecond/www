@@ -68,6 +68,7 @@
 @media (max-width: 729px) {
   .logos {
     grid-template-columns: 1fr;
+    row-gap: 40px;
   }
 }
 
