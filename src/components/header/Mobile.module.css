@@ -9,7 +9,9 @@
   margin-bottom: 16px;
 }
 
+.heading,
 .mainItem a {
+  color: white;
   display: block;
   text-decoration: none;
   padding-top: 8px;

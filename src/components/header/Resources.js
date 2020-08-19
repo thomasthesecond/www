@@ -7,8 +7,18 @@ import styles from './Resources.module.css';
 
 export const RESOURCES_NAV = [
   {
-    title: 'Security Management Resources',
+    title: 'Library',
     url: '/resources/',
+    external: false,
+  },
+  {
+    title: 'Guides',
+    url: '/resources/guides/',
+    external: false,
+  },
+  {
+    title: 'Webinars',
+    url: '/resources/webinars/',
     external: false,
   },
   {
@@ -22,9 +32,28 @@ export const RESOURCES_NAV = [
     external: false,
   },
   {
-    title: 'Product Documentation',
+    title: 'Deploy Documentation',
     url: '/documentation/index.html',
     external: true,
+    newDomain: false,
+  },
+  {
+    title: 'Comply Documentation',
+    url: 'https://docs.aptible.com/',
+    external: true,
+    newDomain: true,
+  },
+  {
+    title: 'Open a Support Ticket',
+    url: 'https://aptible.zendesk.com/hc/en-us/requests/new',
+    external: true,
+    newDomain: true,
+  },
+  {
+    title: 'Status',
+    url: 'https://status.aptible.com/',
+    external: true,
+    newDomain: true,
   },
 ];
 

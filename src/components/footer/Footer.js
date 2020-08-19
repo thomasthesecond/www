@@ -54,7 +54,7 @@ const Footer = () => (
       <div className={styles.resources}>
         <h6 className="small">Resources</h6>
         <Link to="/customers/">Customers</Link>
-        <Link to="/hipaa/">Compliance Guides</Link>
+        <Link to="/resources/guides/">Compliance Guides</Link>
         <Link to="/blog/">Blog</Link>
         <Link to="/blog/category/engineering/">Engineering Blog</Link>
       </div>

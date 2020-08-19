@@ -10,7 +10,7 @@ export default () => (
       <Link to="/resources/webinars/">Webinars</Link>
 
       <h6 className="small">Compliance Guides</h6>
-      <Link to="/iso-27001/">ISO 27001</Link>
+      <Link to="/gdpr/articles/1-subject-matter-objectives/">GDPR</Link>
       <Link to="/hipaa/">HIPAA</Link>
     </div>
 

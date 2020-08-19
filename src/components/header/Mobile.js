@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { Link } from 'gatsby';
 import { Grid } from '../grid/Grid';
 import styles from './Mobile.module.css';
@@ -18,7 +19,7 @@ const Mobile = () => (
           <div className={styles.mainItems}>
             {PRODUCTS_NAV.map((product) => (
               <div key={product.title} className={styles.mainItem}>
-                <Link className="h4" to={product.url}>{product.title}</Link>
+                <Link className={cn(styles.heading, "h4")} to={product.url}>{product.title}</Link>
                 {product.links.map((link) => (
                   <div className={styles.subItem} key={link.url}>
                     <Link className="h6" to={link.url}>{link.title}</Link>
@@ -28,7 +29,7 @@ const Mobile = () => (
             ))}
             
             <div className={styles.mainItem}>
-              <Link className="h4" to="/use-cases/">Use Cases</Link>
+              <div className={cn(styles.heading, "h4")}>Use Cases</div>
               {USE_CASES_NAV.map((link) => (
                 <div className={styles.subItem} key={link.url}>
                   <Link className="h6" to={link.url}>{link.title}</Link>
@@ -37,16 +38,23 @@ const Mobile = () => (
             </div>
             
             <div className={styles.mainItem}>
-              <Link className="h4" to="/customers/">Customers</Link>
+              <Link className={cn(styles.heading, "h4")} to="/customers/">Customers</Link>
             </div>
             
             <div className={styles.mainItem}>
-              <Link className="h4" to="/resources/">Resources</Link>
+              <Link className={cn(styles.heading, "h4")} to="/resources/">Resources</Link>
               {RESOURCES_NAV.map((link) => {
                 if (link.external) {
                   return (
                     <div className={styles.subItem} key={link.url}>
-                      <a className="h6" href={link.url}>{link.title}</a>
+                      <a
+                        className="h6"
+                        href={link.url}
+                        target={link.newDomain ? "_blank" : null}
+                        rel={link.newDomain ? "noopener noreferrer": null}
+                      >
+                        {link.title}
+                      </a>
                     </div>
                   );
                 }
@@ -60,7 +68,7 @@ const Mobile = () => (
             </div>
             
             <div className={styles.mainItem}>
-              <Link className="h4" to="/company/">Company</Link>
+              <Link className={cn(styles.heading, "h4")} to="/company/">Company</Link>
               {COMPANY_NAV.map((link) => (
                 <div className={styles.subItem} key={link.url}>
                   <Link className="h6" to={link.url}>{link.title}</Link>
