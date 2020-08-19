@@ -9,7 +9,7 @@ import styles from './Hero.module.css';
 const Hero = () => (
   <div className={styles.container}>
     <div className={styles.background}>
-      <img src={heroIllustration} />
+      <img src={heroIllustration} alt="" />
     </div>
 
     <Grid>

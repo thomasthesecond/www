@@ -9,7 +9,6 @@ import Blocks from '../components/use-cases/Blocks';
 const UseCaseTemplate = ({ pageContext }) => {
   const {
     title,
-    slug,
     body,
     sections,
   } = pageContext;
