@@ -5,9 +5,9 @@ import styles from './ResourcesLinks.module.css';
 export default () => (
   <div className={styles.container}>
     <div className={styles.column}>
-      <Link to="/library/">Library</Link>
-      <Link to="/guides/">Guides</Link>
-      <Link to="/videos/">Videos</Link>
+      <Link to="/resources/">Library</Link>
+      <Link to="/resources/guides/">Guides</Link>
+      <Link to="/resources/webinars/">Webinars</Link>
 
       <h6 className="small">Compliance Guides</h6>
       <Link to="/iso-27001/">ISO 27001</Link>

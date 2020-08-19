@@ -12,7 +12,7 @@ export const PRODUCTS_NAV = [
     links: [
       {
         title: 'GRC',
-        url: '/comply/grc/',
+        url: '/comply/automation/',
       },
       {
         title: 'Rooms',
