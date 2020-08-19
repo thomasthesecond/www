@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Grid } from '../grid/Grid';
+import ResourceLinks from './ResourcesLinks';
 import styles from './Resources.module.css';
 
 export const RESOURCES_NAV = [
@@ -29,7 +30,7 @@ export const RESOURCES_NAV = [
 const Resources = () => (
   <div className={styles.container}>
     <Grid>
-      <div className={styles.links}>
+      {/* <div className={styles.links}>
         {RESOURCES_NAV.map((link) => {
           if (link.external) {
             return (
@@ -45,7 +46,19 @@ const Resources = () => (
             </Link>
           );
         })}
+      </div> */}
+
+      <div className={styles.links}>
+        <ResourceLinks />
       </div>
+
+      <Link className={styles.callout} to="/owners-manual/">
+        {/* <img src={teamPhoto} alt="" /> */}
+        <div className={styles.calloutText}>
+          <p>Aptible Guide</p>
+          <h5>Introduction to Security Management</h5>
+        </div>
+      </Link>
     </Grid>
   </div>
 );
