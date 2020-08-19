@@ -7,6 +7,7 @@ import auditsIllustration from '../../images/home/illustrations/audits.svg';
 import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.svg';
 import sourceOfTruthIllustration from '../../images/home/illustrations/source-of-truth.svg';
 import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
+import trustIllustration from '../../images/home/illustrations/vendors.svg';
 import { Grid, Row } from '../grid/Grid';
 import Arrow from '../shared/Arrow';
 import Button from '../buttons/Button';
@@ -17,9 +18,10 @@ const illustrations = {
   complianceManagementIllustration,
   sourceOfTruthIllustration,
   vendorsIllustration,
+  trustIllustration,
 }
 
-const ITEMS = useCases.filter((useCase) => useCase.homePageFeatured).map((useCase) => ({
+const ITEMS = useCases.map((useCase) => ({
   id: useCase.slug,
   title: useCase.title,
   image: illustrations[useCase.illustrationKey],
@@ -36,7 +38,7 @@ const FeaturesCarousel = () => {
   const { width: windowWidth } = useWindowSize();
   const [gridRef, { width: gridRefWidth }] = useMeasure();
   const [itemRef, { width: itemRefWidth }] = useMeasure();
-  const scrollbarWidth = useScrollbarWidth() || 15;
+  const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
   const CAROUSEL_HEIGHT = isMobile ? 500 : 776;
 
@@ -58,8 +60,12 @@ const FeaturesCarousel = () => {
     const carouselContainer = carouselRef.current;
     setCarouselPadding((windowWidth - scrollbarWidth - gridRefWidth) / 2);
     carouselContainer.style.paddingLeft = `${carouselPadding}px`;
-    // carouselContainer.style.paddingRight = `${carouselPadding + itemRefWidth}px`;
     carouselContainer.style.paddingRight = `${carouselPadding}px`;
+
+    if (isMobile) {
+      carouselContainer.style.paddingLeft = '0';
+      carouselContainer.style.paddingRight = '0';
+    }
   };
 
   useLayoutEffect(() => {
@@ -73,6 +79,7 @@ const FeaturesCarousel = () => {
     itemRefWidth,
     activeDot,
     isMobile,
+    scrollbarWidth,
   ]);
 
   return (
@@ -90,7 +97,7 @@ const FeaturesCarousel = () => {
             {ITEMS.map(item => {
               const { url, id, title, body, image } = item;
               return (
-                <div key={id} ref={itemRef}>
+                <div key={id} ref={itemRef} className={styles.item}>
                   <Link
                     to={url}
                     className={styles.product}

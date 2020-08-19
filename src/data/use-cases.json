@@ -31,8 +31,7 @@
         ]
       }
     ],
-    "illustrationKey": "sourceOfTruthIllustration",
-    "homePageFeatured": true
+    "illustrationKey": "sourceOfTruthIllustration"
   },
   {
     "title": "Automate Compliance Management",
@@ -71,8 +70,7 @@
         ]
       }
     ],
-    "illustrationKey": "complianceManagementIllustration",
-    "homePageFeatured": true
+    "illustrationKey": "complianceManagementIllustration"
   },
   {
     "title": "Streamline Audits",
@@ -119,8 +117,7 @@
         ]
       }
     ],
-    "illustrationKey": "auditsIllustration",
-    "homePageFeatured": true
+    "illustrationKey": "auditsIllustration"
   },
   {
     "title": "Determine Vendors Trustworthiness",
@@ -154,8 +151,7 @@
         ]
       }
     ],
-    "illustrationKey": "vendorsIllustration",
-    "homePageFeatured": true
+    "illustrationKey": "vendorsIllustration"
   },
   {
     "title": "Streamline Building Customer Trust",
@@ -185,7 +181,6 @@
         ]
       }
     ],
-    "illustrationKey": "",
-    "homePageFeatured": false
+    "illustrationKey": "trustIllustration"
   }
 ]

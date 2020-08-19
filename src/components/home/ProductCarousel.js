@@ -35,7 +35,7 @@ const ProductCarousel = ({}) => {
   const { width: windowWidth } = useWindowSize();
   const [gridRef, { width: gridRefWidth }] = useMeasure();
   const [itemRef, { width: itemRefWidth }] = useMeasure();
-  const scrollbarWidth = useScrollbarWidth() || 15;
+  const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
   const CAROUSEL_HEIGHT = isMobile ? 324 : 450;
 
@@ -58,6 +58,11 @@ const ProductCarousel = ({}) => {
     setCarouselPadding((windowWidth - scrollbarWidth - gridRefWidth) / 2);
     carouselContainer.style.paddingLeft = `${carouselPadding}px`;
     carouselContainer.style.paddingRight = `${carouselPadding}px`;
+
+    if (isMobile) {
+      carouselContainer.style.paddingLeft = '0';
+      carouselContainer.style.paddingRight = '0';
+    }
   };
 
   useLayoutEffect(() => {
@@ -71,6 +76,7 @@ const ProductCarousel = ({}) => {
     itemRefWidth,
     activeDot,
     isMobile,
+    scrollbarWidth,
   ]);
 
   return (
@@ -88,7 +94,7 @@ const ProductCarousel = ({}) => {
             {ITEMS.map(product => {
               const { url, id, name, title, body } = product;
               return (
-                <div key={id} ref={itemRef}>
+                <div key={id} ref={itemRef} className={styles.item}>
                   <Link
                     className={cn(styles.product, styles[id])}
                     to={url}
@@ -133,115 +139,5 @@ const ProductCarousel = ({}) => {
     </div>
   );
 }
-
-// class ProductCarousel extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       activeProduct: this.props.startPosition === 'right' ? 'deploy' : 'comply',
-//     };
-
-//     this.carouselRef = React.createRef();
-//     this.gridRef = React.createRef();
-//     this.scrollWatcher = null;
-//     this.carouselPadding = 0;
-//   }
-
-//   componentDidMount() {
-//     this.padCarouselToScreenSize();
-
-//     this.scrollWatcher = setInterval(() => {
-//       if (this.carouselRef.current.scrollLeft > this.carouselPadding) {
-//         this.setState({ activeProduct: 'deploy' });
-//       } else {
-//         this.setState({ activeProduct: 'comply' });
-//       }
-//     }, 500);
-
-//     if (typeof window !== 'undefined') {
-//       window.addEventListener('resize', this.padCarouselToScreenSize);
-//     }
-//   }
-
-//   componentWillUnmount = () => {
-//     clearInterval(this.scrollWatcher);
-//   };
-
-//   padCarouselToScreenSize = () => {
-//     const container = this.carouselRef.current.children[0];
-//     const gridWidth = this.gridRef.current.offsetWidth;
-//     const windowWidth = window.innerWidth;
-//     this.carouselPadding = (windowWidth - gridWidth) / 2;
-//     container.style.paddingLeft = `${this.carouselPadding}px`;
-//     container.style.paddingRight = `${this.carouselPadding}px`;
-
-//     if (this.props.startPosition && this.props.startPosition === 'right') {
-//       this.carouselRef.current.scrollLeft = container.offsetWidth;
-//     } else {
-//       this.carouselRef.current.scrollLeft = 0;
-//     }
-//   };
-
-//   scrollTo = product => {
-//     if (product === 'comply') {
-//       this.carouselRef.current.scrollLeft = 0;
-//     } else {
-//       this.carouselRef.current.scrollLeft = 999;
-//     }
-//   };
-
-//   render() {
-//     const { activeProduct } = this.state;
-
-//     return (
-//       <div>
-//         <div className={styles.container}>
-//           <div className={styles.productSelector} ref={this.carouselRef}>
-//             <div className={styles.carouselContainer}>
-//               {ITEMS.map(product => {
-//                 const { url, id, name, title, body } = product;
-//                 return (
-//                   <Link
-//                     className={cn(styles.product, styles[id])}
-//                     key={url}
-//                     to={url}
-//                   >
-//                     <div role="presentation" className={styles.productArrow}><Arrow /></div>
-//                     <h5>{name}</h5>
-//                     <h2>{title}</h2>
-//                     <p>{body}</p>
-
-//                     <div className={styles.button}>
-//                       <Button>
-//                         Explore {name} <span className={styles.arrow}>&rarr;</span>
-//                       </Button>
-//                     </div>
-//                   </Link>
-//                 );
-//               })}
-//             </div>
-//           </div>
-//         </div>
-
-//         <Grid>
-//           <Row>
-//             <div className={styles.circles} ref={this.gridRef}>
-//               {ITEMS.map(product => (
-//                 <span
-//                   key={product.id}
-//                   onClick={() => this.scrollTo(product.id)}
-//                   className={cn([
-//                     styles.circle,
-//                     activeProduct === product.id && styles.active,
-//                   ])}
-//                 />
-//               ))}
-//             </div>
-//           </Row>
-//         </Grid>
-//       </div>
-//     );
-//   }
-// }
 
 export default ProductCarousel;
