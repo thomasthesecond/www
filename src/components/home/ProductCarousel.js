@@ -37,7 +37,7 @@ const ProductCarousel = ({}) => {
   const [itemRef, { width: itemRefWidth }] = useMeasure();
   const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
-  const CAROUSEL_HEIGHT = isMobile ? 324 : 450;
+  const CAROUSEL_HEIGHT = isMobile ? 380 : 450;
 
   const startPositions = ITEMS.map((_, index) => {
     return (itemRefWidth * (index + 1)) - itemRefWidth;
