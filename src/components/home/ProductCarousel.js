@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import cn from 'classnames';
 import { Link } from 'gatsby';
-import { useMeasure, useScroll, useWindowSize, useScrollbarWidth, useMedia } from 'react-use';
+import { useMeasure, useScroll, useWindowSize, useMedia } from 'react-use';
 import { Grid, Row } from '../grid/Grid';
 import Button from '../buttons/Button';
 import Arrow from '../shared/Arrow';
@@ -35,8 +35,9 @@ const ProductCarousel = ({}) => {
   const { width: windowWidth } = useWindowSize();
   const [gridRef, { width: gridRefWidth }] = useMeasure();
   const [itemRef, { width: itemRefWidth }] = useMeasure();
-  const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
+  const hasHover = useMedia('(hover: hover)');
+  const scrollbarWidth = hasHover ? 15 : 0;
   const CAROUSEL_HEIGHT = isMobile ? 380 : 450;
 
   const startPositions = ITEMS.map((_, index) => {

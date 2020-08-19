@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import cn from 'classnames';
 import { Link } from 'gatsby';
-import { useMeasure, useScroll, useWindowSize, useScrollbarWidth, useMedia } from 'react-use';
+import { useMeasure, useScroll, useWindowSize, useMedia } from 'react-use';
 import useCases from '../../data/use-cases.json';
 import auditsIllustration from '../../images/home/illustrations/audits.png';
 import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.png';
@@ -38,8 +38,9 @@ const FeaturesCarousel = () => {
   const { width: windowWidth } = useWindowSize();
   const [gridRef, { width: gridRefWidth }] = useMeasure();
   const [itemRef, { width: itemRefWidth }] = useMeasure();
-  const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
+  const hasHover = useMedia('(hover: hover)');
+  const scrollbarWidth = hasHover ? 15 : 0;
   const CAROUSEL_HEIGHT = isMobile ? 550 : 776;
 
   const startPositions = ITEMS.map((_, index) => {
