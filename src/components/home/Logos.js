@@ -1,8 +1,8 @@
 import React from 'react';
-import riffynLogo from '../../images/customers/logos/riffyn.png';
+import healthifyLogo from '../../images/customers/logos/healthify.svg';
+import vergesenseLogo from '../../images/customers/logos/vergesense.svg';
+import mdsaveLogo from '../../images/customers/logos/mdsave.svg';
 import cityBlockLogo from '../../images/customers/logos/cityblock.svg';
-import fortmaticLogo from '../../images/customers/logos/fortmatic.svg';
-import quadpayLogo from '../../images/customers/logos/quadpay.svg';
 import pathaiLogo from '../../images/customers/logos/pathai.png';
 import Container from '../container/Container';
 import styles from './Logos.module.css';
@@ -13,16 +13,16 @@ const Logos = () => (
 
     <div className={styles.logos}>
       <div className={styles.logo}>
-        <img src={riffynLogo} alt="Riffyn logo" />
+        <img src={healthifyLogo} alt="Healthify logo" />
+      </div>
+      <div className={styles.logo}>
+        <img src={vergesenseLogo} alt="Vergesense logo" />
+      </div>
+      <div className={styles.logo}>
+        <img src={mdsaveLogo} alt="MDSave logo" />
       </div>
       <div className={styles.logo}>
         <img src={cityBlockLogo} alt="Cityblock logo" />
-      </div>
-      <div className={styles.logo}>
-        <img src={fortmaticLogo} alt="Fortmatic logo" />
-      </div>
-      <div className={styles.logo}>
-        <img src={quadpayLogo} alt="Quadpay logo" />
       </div>
       <div className={styles.logo}>
         <img src={pathaiLogo} alt="PathAI logo" />
