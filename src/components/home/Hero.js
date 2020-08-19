@@ -1,5 +1,5 @@
 import React from 'react';
-import heroIllustration from '../../images/home/illustrations/hero.png';
+import heroIllustration from '../../images/home/illustrations/source-of-truth-landing.png';
 import { Grid } from '../grid/Grid';
 import SignupButton from '../signup/SignupButton';
 import Paragraph from '../shared/Paragraph';

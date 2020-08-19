@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import AptibleLayout from '../components/layouts/AptibleLayout';
-import Container from '../components/container/Container';
 import Section from '../components/shared/Section';
 import Hero from '../components/use-cases/Hero';
 import Blocks from '../components/use-cases/Blocks';
@@ -11,6 +10,7 @@ const UseCaseTemplate = ({ pageContext }) => {
     title,
     body,
     sections,
+    illustrationKey,
   } = pageContext;
 
   const description = Array.isArray(body) ? body[0] : body;
@@ -25,15 +25,14 @@ const UseCaseTemplate = ({ pageContext }) => {
       <Hero
         title={title}
         body={body}
+        illustrationKey={illustrationKey}
       />
 
-      <Container>
-        {sections.map((section) => (
-          <Section key={section.title} title={section.title} body={section.body}>
-            <Blocks blocks={section.blocks} />
-          </Section>
-        ))}
-      </Container>
+      {sections.map((section) => (
+        <Section key={section.title} title={section.title} body={section.body}>
+          <Blocks blocks={section.blocks} />
+        </Section>
+      ))}
     </AptibleLayout>
   )
 };

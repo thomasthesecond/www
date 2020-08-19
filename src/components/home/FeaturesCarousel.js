@@ -19,7 +19,7 @@ const illustrations = {
   sourceOfTruthIllustration,
   vendorsIllustration,
   trustIllustration,
-}
+};
 
 const ITEMS = useCases.map((useCase) => ({
   id: useCase.slug,

@@ -1,5 +1,7 @@
 .container {
   padding-top: 85px;
+  background-repeat: no-repeat;
+  background-size: 75%;
 }
 
 .text {
@@ -10,17 +12,151 @@
   margin-bottom: 2.5em;
 }
 
+.text p {
+  padding-right: 80px;
+}
+
 .button {
   margin-top: 80px;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  max-width: 1440px;
+  /* background-color: teal; */
+  height: auto;
+  top: 192px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* top: -130px;
+  left: 34vw; */
+  
+  /* width: 1470px;
+  height: 1470px; */
+
+  /* top: 0;
+  right: 0; */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+  display: flex;
+  /* align-items: center; */
+  justify-content: flex-end;
+}
+
+.image {
+  display: block;
+  /* width: 100%;
+  height: 100%; */
+  height: auto;
+  position: relative;
+}
+
+.audits {
+  width: calc(638 / 1440 * 100%);
+  top: 260px;
+  right: 0;
+}
+
+.compliance {
+  width: calc(1167.5 / 1440 * 100%);
+  top: 140px;
+  right: -220px;
+}
+
+.source {
+  width: calc(1470 / 1440 * 100%);
+  top: -240px;
+  right: -300px;
+}
+
+.vendors {
+  width: calc(587 / 1440 * 100%);
+  top: 260px;
+  right: 0;
+}
+
+.trust {
+  width: calc(1453.5 / 1440 * 100%);
+  top: 260px;
+  right: 0;
 }
 
 @media (--mobile) {
   .text {
     grid-row: 1;
     grid-column: 1 / -1;
+    max-width: 50%;
+  }
+
+  .text p {
+    padding-right: 0;
   }
 
   .button {
     margin-top: 40px;
+  }
+
+  /* .background {
+    position: absolute;
+    top: -100px;
+    left: auto;
+    right: -280px;
+    width: 800px;
+    height: 800px;
+  } */
+
+  .audits {
+    /* width: calc(638 / 1440 * 100%);
+    top: 130px;
+    right: 0; */
+    width: 45%;
+    top: 85px;
+    right: 0;
+  }
+  
+  .compliance {
+    /* width: calc(1167.5 / 1440 * 100%);
+    top: 0;
+    right: -100px; */
+    width: 50%;
+    top: 85px;
+    right: 0;
+  }
+  
+  .source {
+    /* width: calc(1470 / 1440 * 100%);
+    top: -50px;
+    right: -300px; */
+    width: 50%;
+    top: 0;
+    right: 0;
+  }
+  
+  .vendors {
+    /* width: calc(587 / 1440 * 100%);
+    top: 130px;
+    right: 0; */
+    width: 45%;
+    top: 85px;
+    right: 0;
+  }
+  
+  .trust {
+    width: calc(1453.5 / 1440 * 100%);
+    top: 130px;
+    right: 0;
+  }
+}
+
+@media (max-width: 569px) {
+  .text {
+    max-width: 100%;
+  }
+
+  .background {
+    display: none;
   }
 }
