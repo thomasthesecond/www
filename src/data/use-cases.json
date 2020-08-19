@@ -30,7 +30,9 @@
           }
         ]
       }
-    ]
+    ],
+    "illustrationKey": "sourceOfTruthIllustration",
+    "homePageFeatured": true
   },
   {
     "title": "Automate Compliance Management",
@@ -38,7 +40,7 @@
     "body": [
       "While audits happen once a year, compliance happens daily. Comply makes it simple to execute on implementing your controls by automating away many of these routine compliance tasks and automating the ticket creation and assignment for manual tasks."
     ],
-    "excerpt": "",
+    "excerpt": "Intelligent automations remove tedious work and automated processes make manual work easier to simplify managing compliance.",
     "sections": [
       {
         "title": "Compliance Automation",
@@ -68,7 +70,9 @@
           }
         ]
       }
-    ]
+    ],
+    "illustrationKey": "complianceManagementIllustration",
+    "homePageFeatured": true
   },
   {
     "title": "Streamline Audits",
@@ -76,7 +80,7 @@
     "body": [
       "Audits are milestone events but preparing for them doesn’t have to be a sprint. With Comply the work that happens on a daily basis is easily transformed into the packet you provide an auditor. With a single source of truth for your compliance program and automation to make implementing controls easier, audits happen faster with less stress."
     ],
-    "excerpt": "",
+    "excerpt": "Speed through audits with less stress with purpose-built features that make it easy to manage auditor’s requests and export evidence.",
     "sections": [
       {
         "title": "Test Once, Use Many Places",
@@ -114,7 +118,9 @@
           }
         ]
       }
-    ]
+    ],
+    "illustrationKey": "auditsIllustration",
+    "homePageFeatured": true
   },
   {
     "title": "Determine Vendors Trustworthiness",
@@ -123,7 +129,7 @@
       "Companies today have more vendors, with more customer data, and more opportunity for breaches than ever before. In the cloud era of compliance understanding your vendors security practices and managing your vendor risk is critical.",
       "Comply makes it simple to manage vendors through their entire lifecycle."
     ],
-    "excerpt": "",
+    "excerpt": "Understand and manage third-party risk throughout the vendor lifecycle with a suite of powerful vendor management tools.",
     "sections": [
       {
         "title": "Streamline Vendor Management",
@@ -147,7 +153,9 @@
           }
         ]
       }
-    ]
+    ],
+    "illustrationKey": "vendorsIllustration",
+    "homePageFeatured": true
   },
   {
     "title": "Streamline Building Customer Trust",
@@ -176,6 +184,8 @@
           }
         ]
       }
-    ]
+    ],
+    "illustrationKey": "",
+    "homePageFeatured": false
   }
 ]

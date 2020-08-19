@@ -2,46 +2,30 @@ import React, { useState, useRef, useLayoutEffect } from 'react';
 import cn from 'classnames';
 import { Link } from 'gatsby';
 import { useMeasure, useScroll, useWindowSize, useScrollbarWidth, useMedia } from 'react-use';
+import useCases from '../../data/use-cases.json';
 import auditsIllustration from '../../images/home/illustrations/audits.svg';
 import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.svg';
 import sourceOfTruthIllustration from '../../images/home/illustrations/source-of-truth.svg';
-// import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
+import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
 import { Grid, Row } from '../grid/Grid';
 import Arrow from '../shared/Arrow';
 import Button from '../buttons/Button';
 import styles from './FeaturesCarousel.module.css';
 
-const ITEMS = [
-  {
-    id: '1',
-    title: 'Create a single source of truth',
-    image: sourceOfTruthIllustration,
-    body: 'Simplify compliance management with all of your controls, risks, documents, vendors, assets, evidence, and more connected together.',
-    url: '/',
-  },
-  {
-    id: '2',
-    title: 'Automate Compliance Management',
-    image: complianceManagementIllustration,
-    body: 'Intelligent automations remove tedious work and automated processes make manual work easier to simplify managing compliance.',
-    url: '/',
-  },
-  {
-    id: '3',
-    title: 'Streamline Audits',
-    image: auditsIllustration,
-    body: 'Speed through audits with less stress with purpose-built features that make it easy to manage auditor’s requests and export evidence.',
-    url: '/',
-  },
-  {
-    id: '4',
-    title: 'Determine Vendors Trustworthiness',
-    // image: vendorsIllustration,
-    image: '',
-    body: 'Understand and manage third-party risk throughout the vendor lifecycle with a suite of powerful vendor management tools.',
-    url: '/',
-  },
-];
+const illustrations = {
+  auditsIllustration,
+  complianceManagementIllustration,
+  sourceOfTruthIllustration,
+  vendorsIllustration,
+}
+
+const ITEMS = useCases.filter((useCase) => useCase.homePageFeatured).map((useCase) => ({
+  id: useCase.slug,
+  title: useCase.title,
+  image: illustrations[useCase.illustrationKey],
+  body: useCase.excerpt,
+  url: `/use-cases/${useCase.slug}/`,
+}));
 
 const FeaturesCarousel = () => {
   const scrollRef = useRef(null);
