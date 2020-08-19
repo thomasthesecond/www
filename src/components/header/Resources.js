@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import pic from '../../images/security-management/sm1.jpg';
 import { Grid } from '../grid/Grid';
 import ResourceLinks from './ResourcesLinks';
 import styles from './Resources.module.css';
@@ -30,35 +31,19 @@ export const RESOURCES_NAV = [
 const Resources = () => (
   <div className={styles.container}>
     <Grid>
-      {/* <div className={styles.links}>
-        {RESOURCES_NAV.map((link) => {
-          if (link.external) {
-            return (
-              <a href={link.url} key={link.title}>
-                <div>{link.title}</div>
-              </a>
-            );
-          }
-
-          return (
-            <Link to={link.url} key={link.title}>
-              <div>{link.title}</div>
-            </Link>
-          );
-        })}
-      </div> */}
-
       <div className={styles.links}>
         <ResourceLinks />
       </div>
 
-      <Link className={styles.callout} to="/owners-manual/">
-        {/* <img src={teamPhoto} alt="" /> */}
-        <div className={styles.calloutText}>
-          <p>Aptible Guide</p>
-          <h5>Introduction to Security Management</h5>
-        </div>
-      </Link>
+      <div className={styles.calloutContainer}>
+        <Link className={styles.callout} to="/security-management/">
+          <img src={pic} alt="" />
+          <div className={styles.calloutText}>
+            <p>Aptible Guide</p>
+            <h5>Introduction to Security Management</h5>
+          </div>
+        </Link>
+      </div>
     </Grid>
   </div>
 );

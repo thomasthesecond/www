@@ -43,13 +43,15 @@ const Company = () => (
         ))}
       </div>
 
-      <Link className={styles.callout} to="/owners-manual/">
-        <img src={teamPhoto} alt="" />
-        <div className={styles.calloutText}>
-          <h5>Owner’s Manual <span className={styles.arrow}>&rarr;</span></h5>
-          <p>Get a clear sense of what this team is — what we mean by “us.”</p>
-        </div>
-      </Link>
+      <div className={styles.calloutContainer}>
+        <Link className={styles.callout} to="/owners-manual/">
+          <img src={teamPhoto} alt="" />
+          <div className={styles.calloutText}>
+            <h5>Owner’s Manual <span className={styles.arrow}>&rarr;</span></h5>
+            <p>Get a clear sense of what this team is — what we mean by “us.”</p>
+          </div>
+        </Link>
+      </div>
     </Grid>
   </div>
 );
