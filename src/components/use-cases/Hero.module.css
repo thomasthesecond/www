@@ -1,7 +1,7 @@
 .container {
   padding-top: 85px;
-  background-repeat: no-repeat;
-  background-size: 75%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .text {
@@ -23,63 +23,48 @@
 .background {
   position: absolute;
   width: 100%;
-  max-width: 1440px;
-  /* background-color: teal; */
   height: auto;
   top: 192px;
   left: 0;
   right: 0;
+  max-width: 1440px;
   margin: auto;
-  /* top: -130px;
-  left: 34vw; */
-  
-  /* width: 1470px;
-  height: 1470px; */
-
-  /* top: 0;
-  right: 0; */
-  background-repeat: no-repeat;
-  background-size: 100%;
-  
   display: flex;
-  /* align-items: center; */
   justify-content: flex-end;
 }
 
 .image {
   display: block;
-  /* width: 100%;
-  height: 100%; */
-  height: auto;
+  height: 100%;
   position: relative;
 }
 
 .audits {
-  width: calc(638 / 1440 * 100%);
+  width: 606px;
   top: 260px;
   right: 0;
 }
 
 .compliance {
-  width: calc(1167.5 / 1440 * 100%);
+  width: 1168px;
   top: 140px;
   right: -220px;
 }
 
 .source {
-  width: calc(1470 / 1440 * 100%);
-  top: -240px;
-  right: -300px;
+  width: 1470px;
+  top: -280px;
+  right: -450px;
 }
 
 .vendors {
-  width: calc(587 / 1440 * 100%);
+  width: 587px;
   top: 260px;
   right: 0;
 }
 
 .trust {
-  width: calc(1453.5 / 1440 * 100%);
+  width: 1440px;
   top: 260px;
   right: 0;
 }
@@ -99,55 +84,56 @@
     margin-top: 40px;
   }
 
-  /* .background {
-    position: absolute;
-    top: -100px;
-    left: auto;
-    right: -280px;
-    width: 800px;
-    height: 800px;
-  } */
-
   .audits {
-    /* width: calc(638 / 1440 * 100%);
-    top: 130px;
-    right: 0; */
-    width: 45%;
+    width: 400px;
     top: 85px;
-    right: 0;
   }
   
   .compliance {
-    /* width: calc(1167.5 / 1440 * 100%);
+    width: 560px;
     top: 0;
-    right: -100px; */
-    width: 50%;
-    top: 85px;
-    right: 0;
+    right: -50px;
   }
   
   .source {
-    /* width: calc(1470 / 1440 * 100%);
-    top: -50px;
-    right: -300px; */
-    width: 50%;
-    top: 0;
-    right: 0;
+    width: 790px;
+    top: -300px;
+    right: -200px;
   }
   
   .vendors {
-    /* width: calc(587 / 1440 * 100%);
-    top: 130px;
-    right: 0; */
-    width: 45%;
+    width: 380px;
     top: 85px;
-    right: 0;
   }
   
   .trust {
-    width: calc(1453.5 / 1440 * 100%);
+    width: 800px;
     top: 130px;
     right: 0;
+  }
+}
+
+@media (max-width: 799px) {
+  .source {
+    width: 500px;
+    top: -150px;
+    right: -150px;
+  }
+
+  .compliance {
+    right: -100px;
+  }
+
+  .audits {
+    right: -100px;
+  }
+
+  .vendors {
+    right: -100px;
+  }
+
+  .trust {
+    right: -100px;
   }
 }
 
