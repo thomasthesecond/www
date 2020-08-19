@@ -3,11 +3,11 @@ import cn from 'classnames';
 import { Link } from 'gatsby';
 import { useMeasure, useScroll, useWindowSize, useScrollbarWidth, useMedia } from 'react-use';
 import useCases from '../../data/use-cases.json';
-import auditsIllustration from '../../images/home/illustrations/audits.svg';
-import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.svg';
-import sourceOfTruthIllustration from '../../images/home/illustrations/source-of-truth.svg';
-import vendorsIllustration from '../../images/home/illustrations/vendors.svg';
-import trustIllustration from '../../images/home/illustrations/vendors.svg';
+import auditsIllustration from '../../images/home/illustrations/audits.png';
+import complianceManagementIllustration from '../../images/home/illustrations/compliance-management.png';
+import sourceOfTruthIllustration from '../../images/home/illustrations/source-of-truth.png';
+import vendorsIllustration from '../../images/home/illustrations/vendors.png';
+import trustIllustration from '../../images/home/illustrations/trust.png';
 import { Grid, Row } from '../grid/Grid';
 import Arrow from '../shared/Arrow';
 import Button from '../buttons/Button';
@@ -40,7 +40,7 @@ const FeaturesCarousel = () => {
   const [itemRef, { width: itemRefWidth }] = useMeasure();
   const scrollbarWidth = useScrollbarWidth();
   const isMobile = useMedia('(max-width: 1119px)');
-  const CAROUSEL_HEIGHT = isMobile ? 500 : 776;
+  const CAROUSEL_HEIGHT = isMobile ? 550 : 776;
 
   const startPositions = ITEMS.map((_, index) => {
     return (itemRefWidth * (index + 1)) - itemRefWidth;
@@ -102,10 +102,15 @@ const FeaturesCarousel = () => {
                     to={url}
                     className={styles.product}
                     style={{
-                      backgroundImage: image ? `url(${image})` : null,
                       height: `${CAROUSEL_HEIGHT}px`,
                     }}
                   >
+                    <div
+                      className={styles.background}
+                      style={{
+                        backgroundImage: image ? `url(${image})` : null,
+                      }}
+                    />
                     <div role="presentation" className={styles.productArrow}><Arrow /></div>
                     <div className={styles.content}>
                       <h3>{title}</h3>

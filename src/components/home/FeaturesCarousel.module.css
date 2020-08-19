@@ -27,20 +27,23 @@
   max-width: 558px;
   background-color: var(--aptible-black-light);
   text-decoration: none;
-  background-size: 800px;
-  background-position: 420px -190px;
-  background-repeat: no-repeat;
   border-bottom: 4px solid var(--aptible-black-light);
   text-align: center;
   display: flex;
   flex-direction: column;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  position: relative;
 }
 
 .product {
   margin-right: 8px;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .content {
@@ -69,7 +72,7 @@
 .product:hover,
 .product:active,
 .product:focus {
-  background-color: var(--aptible-card-hover);
+  background: linear-gradient(360deg, var(--aptible-card-hover) 10%, var(--aptible-black) 80%);
   border-bottom-color: var(--aptible-yellow);
 }
 
@@ -119,9 +122,12 @@
   .product {
     background-size: 250px auto;
     background-position: top center;
-    padding: 30px;
     width: 40vw;
     min-width: 272px;
+  }
+
+  .content {
+    padding: 0 15px 30px;
   }
 
   .product h5 {
