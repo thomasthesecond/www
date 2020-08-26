@@ -23,7 +23,6 @@
 }
 
 .content li {
-  font-size: 16px;
   margin-bottom: 15px;
 }
 
@@ -48,5 +47,17 @@
     grid-row: 3;
     grid-column: 1 / span 7;
     padding-bottom: 30px;
+  }
+}
+
+
+@media print {
+  .title {
+    padding-top: 0;
+    padding-bottom: 2em;
+  }
+
+  .content li {
+    margin-bottom: 0;
   }
 }
